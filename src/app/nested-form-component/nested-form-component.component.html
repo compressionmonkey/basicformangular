@@ -1,0 +1,40 @@
+<div class="formPos">
+    <form [formGroup]="myForm" class="example-form">
+    
+        value: {{ myForm.value | json }}
+        
+        <hr>
+        
+        <mat-form-field class="example-half-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Write your email">
+        </mat-form-field>
+
+        <h4>Cell Phone</h4>
+        <div formGroupName="cellPhone">
+            <mat-form-field class="example-quarter-width">
+                <input matInput formControlName="area" placeholder="area">
+            </mat-form-field>
+            <mat-form-field class="example-quarter-width">
+                <input matInput formControlName="prefix" placeholder="prefix">
+            </mat-form-field>
+            <mat-form-field class="example-quarter-width">
+                <input matInput formControlName="line" placeholder="line">
+            </mat-form-field>
+        </div>
+
+        <h4>Home Phone</h4>
+        <div formGroupName="homePhone">
+            <mat-form-field class="example-quarter-width">
+                <input matInput formControlName="area" placeholder="area">
+            </mat-form-field>
+            <mat-form-field class="example-quarter-width">
+                <input matInput formControlName="prefix" placeholder="prefix">
+            </mat-form-field>
+            <mat-form-field class="example-quarter-width">
+                <input matInput formControlName="line" placeholder="line">
+            </mat-form-field>
+        </div>
+        
+    </form>
+    </div>

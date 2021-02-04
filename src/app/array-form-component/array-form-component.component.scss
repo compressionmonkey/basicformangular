@@ -1,0 +1,20 @@
+// @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+  
+.example-quarter-width {
+   width: 20%;
+}
+.example-half-width {
+   width: 50%;
+}
+
+.formPos{
+    position: relative;
+    width: 100%;
+    left: 400px;
+    top: 100px;
+}

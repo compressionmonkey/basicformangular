@@ -6,13 +6,17 @@ import { BasicFormComponentComponent } from './basic-form-component/basic-form-c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NestedFormComponentComponent } from './nested-form-component/nested-form-component.component';
+import { ArrayFormComponentComponent } from './array-form-component/array-form-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicFormComponentComponent
+    BasicFormComponentComponent,
+    NestedFormComponentComponent,
+    ArrayFormComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
