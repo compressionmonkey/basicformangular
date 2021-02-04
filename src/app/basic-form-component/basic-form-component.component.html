@@ -1,0 +1,21 @@
+<div class="formPos">
+<form [formGroup]="myForm" class="example-form">
+
+    value: {{ myForm.value | json }}
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Write your email">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Message</mat-label>
+      <textarea matInput formControlName="message" placeholder="write a message"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Career</mat-label>
+      <textarea matInput formControlName="career" placeholder="what is your career"></textarea>
+    </mat-form-field>
+</form>
+</div>
