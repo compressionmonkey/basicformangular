@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { fromEvent } from 'rxjs';
 @Component({
   selector: 'app-array-form-component',
   templateUrl: './array-form-component.component.html',
@@ -14,6 +15,16 @@ export class ArrayFormComponentComponent implements OnInit {
       email: '',
       phones: this.fb.array([])
     });
+    const el = document.getElementsByClassName('formPos');
+    const mouseMoves = fromEvent(el, 'mousemove');
+    const subscription = mouseMoves.subscribe(
+      (evt: MouseEvent) => {
+        console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+        if(evt.clientX < 410){
+          subscription.unsubscribe();
+        }
+      }
+    )
   }
 
   get phoneForms(){
