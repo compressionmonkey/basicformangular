@@ -10,15 +10,19 @@ import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NestedFormComponentComponent } from './nested-form-component/nested-form-component.component';
 import { ArrayFormComponentComponent } from './array-form-component/array-form-component.component';
+import { LoginAgeComponent } from './login-age/login-age.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicFormComponentComponent,
     NestedFormComponentComponent,
-    ArrayFormComponentComponent
+    ArrayFormComponentComponent,
+    LoginAgeComponent
   ],
   imports: [
+    MatCheckboxModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatFormFieldModule,

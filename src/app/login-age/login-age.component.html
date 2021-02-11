@@ -1,0 +1,48 @@
+<div class="loginForm">
+<form [formGroup]="myForm" class="example-form" (ngSubmit)="callingFunction()">
+    Value: {{ myForm.value | json }}
+    <p>
+    <mat-form-field class="examplewidth">
+        <input matInput placeholder="email" formControlName="email" autocomplete="">
+
+        <mat-error *ngIf="email.invalid && email.touched">
+            Your email does not look right
+        </mat-error>
+    </mat-form-field>
+    </p>
+    <p>
+    <mat-form-field class="examplewidth">
+        <input matInput type="password" placeholder="password" formControlName="password" autocomplete="">
+        <mat-hint align="start">Must have one letter, and one number</mat-hint>
+        <mat-error *ngIf="password.invalid && password.touched">
+            That password sucks
+        </mat-error>
+    </mat-form-field>
+    </p>
+    <p>
+    <mat-form-field class="examplewidth">
+        <input matInput [value]="0" (input)="seeChange($event.target.value)" placeholder="age" formControlName="age" autocomplete="">
+        <mat-error *ngIf="age.errors?.min && age.touched">
+            {{ age.errors.min.actual }} is too young to use this app kiddo!
+        </mat-error>
+        <mat-error *ngIf="age.errors?.max && age.touched">
+            {{ age.errors.max.actual }} is too old to use this app gramps!
+        </mat-error>
+    </mat-form-field>
+    </p>
+    <p>
+    <mat-checkbox formControlName="agree" color="primary">
+        Are you sure?
+    </mat-checkbox>
+    </p>
+    <hr>
+    <p>
+    <button mat-raised-button (click)="onClick()" type="submit" [disabled]="myForm.invalid" color="primary">
+        Let's do it!
+    </button>
+    </p>
+    <p>
+        Your form status is : {{ myForm.status }}
+    </p>
+</form>
+</div>

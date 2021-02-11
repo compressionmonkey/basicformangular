@@ -27,4 +27,8 @@ export class NestedFormComponentComponent implements OnInit {
     }) 
   }
 
+  onClick(){
+    console.log('here', this.myForm.valid)
+  }
+
 }

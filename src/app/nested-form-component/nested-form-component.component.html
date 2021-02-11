@@ -35,6 +35,7 @@
                 <input matInput formControlName="line" placeholder="line">
             </mat-form-field>
         </div>
+        <button type="submit" [disabled]="!myForm.valid" (click)="onClick()">Submit</button>
         
     </form>
     </div>

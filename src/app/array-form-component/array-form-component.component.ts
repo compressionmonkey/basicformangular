@@ -42,10 +42,6 @@ export class ArrayFormComponentComponent implements OnInit {
       console.log('hey', val);
     })
 
-    this.myForm = this.fb.group({
-      email: '',
-      phones: this.fb.array([])
-    });
     // ajax observable and error handling
     const apiData$ = ajax('https://jsonplaceholder.typicode.com/todos/1').pipe(
       map((res: any) => {
@@ -57,25 +53,29 @@ export class ArrayFormComponentComponent implements OnInit {
       }),
       retry(3),
       catchError(err => of([]))
-    );
-    apiData$.subscribe({
-      // res => console.log('api is',res.status, res.response)
-      next(x){console.log('data: ', x);},
-      error(err){ console.log('errors already caught', err);}
+      );
+      apiData$.subscribe({
+        // res => console.log('api is',res.status, res.response)
+        next(x){console.log('data: ', x);},
+        error(err){ console.log('errors already caught', err);}
       });
-    // from event observable
-    const el = document.getElementsByClassName('formPos');
-    const mouseMoves$ = fromEvent(el, 'mousemove');
-    const subscription = mouseMoves$.subscribe(
-      (evt: MouseEvent) => {
-        console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
-        if(evt.clientX < 410){
-          subscription.unsubscribe();
+      // from event observable
+      const el = document.getElementsByClassName('formPos');
+      const mouseMoves$ = fromEvent(el, 'mousemove');
+      const subscription = mouseMoves$.subscribe(
+        (evt: MouseEvent) => {
+          // console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+          if(evt.clientX < 410){
+            subscription.unsubscribe();
+          }
         }
+        )
+        this.myForm = this.fb.group({
+          email: '',
+          phones: this.fb.array([])
+        });
       }
-    )
-  }
-
+      
   get phoneForms(){
     return this.myForm.get('phones') as FormArray;
   }
@@ -87,7 +87,7 @@ export class ArrayFormComponentComponent implements OnInit {
       line: []
     });
     this.phoneForms.push(phone);
-    console.log('this', this.phoneForms)
+    console.log('this', this.phoneForms.controls)
   }
 
   deletephone(i){
